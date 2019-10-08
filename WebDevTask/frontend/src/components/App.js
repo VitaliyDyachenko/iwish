@@ -1,60 +1,25 @@
 import React, { Component, Fragment } from 'react';
 import ReactDOM from 'react-dom';
-
-import Header from './layout/header';
-import Dashboard from './users/Dashboard';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 
+import Header from './layout/Header';
+import Users from './users/Users';
+import Form_add from './forms/Form_add'
+import Form_edit from './forms/Form_edit'
+import Form_delete from './forms/Form_delete'
 
-class App extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-          error: null,
-          isLoaded: false,
-          items: []
-        };
-      }
-      componentDidMount()
-      {
-          fetch('http://localhost:8000/api/users/?format=json')
-          .then(res => res.json())
-          .then(
-              (result) => {
-                this.setState({
-                    isLoaded: true,
-                    items: result,
-            })}).catch()
-        }
-    render()
-    {
-        var items = this.state.items
-        console.log("Here goes nothing")
-        console.log(items)
-        console.log(items)
-        return(
-        <Fragment>
-            <Header />
-            <div className="container">
-                <ul>
-                    {items.map(item =>
-                        <Fragment key={item.name}>
-                        <p className="h2">
-                            {item.name}
-                        </p>
-                        <p className="h5">
-                        {item.email}
-                        </p>
-                        <p className="h4">
-                            {item.bio}
-                        </p>
-                        </Fragment>
-                        )}
-                </ul>
-            </div>
-        </Fragment>
+
+    const routing = (
+        <Router>
+        <div className="container">
+            <Route path="/" component={Header} />
+            <Route exact path="/" component={Users} />
+            <Route exact path="/add_user" component={Form_add} />
+            <Route exact path="/edit_user" component={Form_edit} />
+            <Route exact path="/delete_user" component={Form_delete} />
+        </div>
+        </Router>
         )
-    }
-}
 
-ReactDOM.render( <App /> , document.getElementById('app'));
+ReactDOM.render( routing , document.getElementById('app'));
