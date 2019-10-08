@@ -3,15 +3,15 @@ import React, { Component } from 'react'
 export class header extends Component {
     render() {
         return (
-                <ul class="nav nav-tabs">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">Main Page</a>
+                <ul className="nav nav-tabs">
+                <li className="nav-item">
+                    <a className="nav-link active" href="#">Main Page</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Users</a>
+                <li className="nav-item">
+                    <a className="nav-link" href="#">Users</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
+                <li className="nav-item">
+                    <a className="nav-link" href="#">About</a>
                 </li>
                 </ul>
             
