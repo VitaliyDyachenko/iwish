@@ -4,7 +4,6 @@ import React, { Component } from 'react'
 export class Header extends Component {
     render() {
         const location = this.props.location.pathname
-        console.log(this.props)
         const styles = {
             nav_link_act : "nav-link active",
             nav_link_not_act : "nav-link"
