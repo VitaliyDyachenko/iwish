@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
+import ImageUploader from 'react-images-upload';
 
 export class Form_add extends Component {
+
     constructor(props) {
       super(props);
       this.state = {
@@ -10,11 +12,17 @@ export class Form_add extends Component {
         bio : '',
         likes_design : ''
       };
-
       this.handleChangeName = this.handleChangeName.bind(this);
       this.handleChangeBio = this.handleChangeBio.bind(this);
       this.handleChangeEmail = this.handleChangeEmail.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
+      this.onDrop = this.onDrop.bind(this);
+    }
+
+    onDrop(picture) {
+      this.setState({
+          pictures: this.state.pictures.concat(picture),
+      });
     }
 
     handleChangeName(event) {
@@ -65,6 +73,18 @@ export class Form_add extends Component {
               placeholder="Was an office worker. Now is the chosen one." onChange={this.handleChangeBio} value={this.state.bio} />
             </div>
           </div>
+
+          <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Upload</span>
+          </div>
+          <div class="custom-file">
+
+            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+          </div>
+          </div>
+
+
           <input className="btn btn-secondary rounded" type="submit" value="Submit" />
         </form>
       );
