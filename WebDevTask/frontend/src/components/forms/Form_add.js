@@ -78,9 +78,17 @@ export class Form_add extends Component {
                 withIcon={false}
                 singleImage={true}
                 label="Upload a profile picture"
+                labelStyles={{
+                  fontSize: 20,
+                }}
                 buttonText='Choose image'
+                buttonStyles = {{
+                    backgroundColor: "#ced4da",
+                    color: "#495057",
+                    fontSize: 17,
+                }}
                 onChange={this.onDrop}
-                imgExtension={['.jpg', '.gif', '.png', '.gif']}
+                imgExtension={['.jpg', '.png']}
                 maxFileSize={5242880}
             />
 
