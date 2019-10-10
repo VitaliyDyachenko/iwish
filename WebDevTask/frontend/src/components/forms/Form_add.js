@@ -73,17 +73,16 @@ export class Form_add extends Component {
               placeholder="Was an office worker. Now is the chosen one." onChange={this.handleChangeBio} value={this.state.bio} />
             </div>
           </div>
-
-          <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <span class="input-group-text">Upload</span>
-          </div>
-          <div class="custom-file">
-
-            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-          </div>
-          </div>
-
+          
+          <ImageUploader
+                withIcon={false}
+                singleImage={true}
+                label="Upload a profile picture"
+                buttonText='Choose image'
+                onChange={this.onDrop}
+                imgExtension={['.jpg', '.gif', '.png', '.gif']}
+                maxFileSize={5242880}
+            />
 
           <input className="btn btn-secondary rounded" type="submit" value="Submit" />
         </form>

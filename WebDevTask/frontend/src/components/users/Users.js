@@ -30,8 +30,15 @@ export class Users extends Component {
       )
     }
     render() {
-      var items = this.state.items
-      return  <div className="container">
+      var { error, isLoaded, items } = this.state
+      if (error) {
+        return <div>Error: {error.message}</div>
+      } else if (!isLoaded) {
+        return <div class="spinner-grow" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+      }
+      return <div className="container">
                 <ul>
                   {items.map(item =>
                       <li key={item.email}>
