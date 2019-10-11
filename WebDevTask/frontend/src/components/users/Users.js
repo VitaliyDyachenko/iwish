@@ -29,6 +29,14 @@ export class Users extends Component {
         }
       )
     }
+  
+    deleteItem(id){
+      const endpoint = 'http://localhost:8000/api/users/'+id;
+      fetch(endpoint, {
+        mode: 'Delete'
+      })
+    }
+
     render() {
       var { error, isLoaded, items } = this.state
       if (error) {
@@ -50,6 +58,7 @@ export class Users extends Component {
                         </p>
                         <p className="h4">
                             {item.bio}
+                            <input className="btn btn-danger rounded float-right btn-md" type="delete" value="delete" />
                         </p>
                         <p className="h6">
                             {"Created at " + item.created_at}

@@ -17,6 +17,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='user',
             name='picture',
-            field=models.ImageField(default='default.jps', upload_to='profile_pics'),
+            field=models.ImageField(default='default.jpg', upload_to='profile_pics'),
         ),
     ]

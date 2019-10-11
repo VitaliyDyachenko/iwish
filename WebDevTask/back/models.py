@@ -6,5 +6,5 @@ class User(models.Model):
     email = models.EmailField(max_length=100, unique=True)
     created_at = models.DateField(auto_now_add=True)
     bio = models.CharField(max_length=500)
-    picture = models.ImageField(default='default.jps', upload_to='profile_pics')
+    picture = models.ImageField(default='default.jpg', upload_to='profile_pics')
     
