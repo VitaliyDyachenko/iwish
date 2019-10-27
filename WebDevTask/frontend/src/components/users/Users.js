@@ -8,6 +8,7 @@ export class Users extends Component {
       isLoaded: false,
       items: []
     };
+    this.deleteItem = this.deleteItem.bind(this);
   }
   componentDidMount()
   {
@@ -33,7 +34,7 @@ export class Users extends Component {
     deleteItem(id){
       const endpoint = 'http://localhost:8000/api/users/'+id;
       fetch(endpoint, {
-        mode: 'Delete'
+        method: 'delete'
       })
     }
 
@@ -42,8 +43,8 @@ export class Users extends Component {
       if (error) {
         return <div>Error: {error.message}</div>
       } else if (!isLoaded) {
-        return <div class="spinner-grow" role="status">
-        <span class="sr-only">Loading...</span>
+        return <div className="spinner-grow" role="status">
+        <span className="sr-only">Loading...</span>
       </div>
       }
       return <div className="container">
@@ -58,7 +59,8 @@ export class Users extends Component {
                         </p>
                         <p className="h4">
                             {item.bio}
-                            <input className="btn btn-danger rounded float-right btn-md" type="delete" value="delete" />
+                            <button className="btn btn-danger rounded float-right btn-md" size="lg"
+                            type="delete" value="delete" onClick={this.deleteItem.bind(this, item.id)} onChange={this.deleteItem.bind(this, item.id)} />
                         </p>
                         <p className="h6">
                             {"Created at " + item.created_at}
