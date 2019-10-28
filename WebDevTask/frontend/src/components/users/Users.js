@@ -59,8 +59,11 @@ export class Users extends Component {
                         </p>
                         <p className="h4">
                             {item.bio}
-                            <button className="btn btn-danger rounded float-right btn-md" size="lg"
-                            type="delete" value="delete" onClick={this.deleteItem.bind(this, item.id)} onChange={this.deleteItem.bind(this, item.id)} />
+                            <button className="btn btn-danger btn-lg rounded float-right"
+                            onClick={this.deleteItem.bind(this, item.id)}
+                            onChange={this.deleteItem.bind(this, item.id)}>
+                              delete
+                              </button>
                         </p>
                         <p className="h6">
                             {"Created at " + item.created_at}
