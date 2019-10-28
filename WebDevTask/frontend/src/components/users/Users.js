@@ -31,11 +31,11 @@ export class Users extends Component {
       )
     }
   
-    deleteItem(id){
-      const endpoint = 'http://127.0.0.1:8000/api/users/'+id;
+    deleteItem(id, name){
+      const endpoint = 'http://localhost:8000/api/users/'+id;
       fetch(endpoint, {
         method: 'delete'
-      })
+      }).then(alert("User " + name + " has been deleted")).then(window.location.reload());
     }
 
     render() {
@@ -60,7 +60,7 @@ export class Users extends Component {
                         <p className="h4">
                             {item.bio}
                             <button className="btn btn-danger btn-lg rounded float-right"
-                            onClick={this.deleteItem.bind(this, item.id)}
+                            onClick={this.deleteItem.bind(this, item.id, item.name)}
                             onChange={this.deleteItem.bind(this, item.id)}>
                               delete
                               </button>
