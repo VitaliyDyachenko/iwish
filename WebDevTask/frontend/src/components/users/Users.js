@@ -32,7 +32,7 @@ export class Users extends Component {
     }
   
     deleteItem(id){
-      const endpoint = 'http://localhost:8000/api/users/'+id;
+      const endpoint = 'http://127.0.0.1:8000/api/users/'+id;
       fetch(endpoint, {
         method: 'delete'
       })

@@ -28,19 +28,21 @@ export class Form_add extends Component {
       const target = event.target;
       const value = target.value;
       const name = target.name;
-  
+      
       this.setState({
         [name]: value
       });
     }
     sendDataToApi() {
-      const endpoint = 'http://localhost:8000/api/users/?format=json';
+      var data = new FormData();
+      data.append( "json", JSON.stringify( this.state ) );
+
+      const endpoint = 'http://127.0.0.1:8000/api/users/?format=json';
+      
+      
       fetch(endpoint, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(this.state)
+        body: data
       },
       (error) => {
       alert(error);
