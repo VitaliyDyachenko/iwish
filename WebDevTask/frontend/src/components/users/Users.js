@@ -49,9 +49,10 @@ export class Users extends Component {
       }
       return <div className="container">
                 <ul>
-                  {items.map(item =>
-                      <li key={item.email}>
-                        <p className="h2">
+                
+                  {items.reverse().map(item =>
+                      <li key={item.email} className="pad">
+                        <p className="h1">
                             {item.name}
                         </p>
                         <p className="h5">
@@ -68,9 +69,11 @@ export class Users extends Component {
                         <p className="h6">
                             {"Created at " + item.created_at}
                         </p>
+                        <hr style={{width: '100%', color: 'black', height: '1px', backgroundColor:'grey'}} />
                       </li>
                       )}
                 </ul>
+                
               </div>
     }
 }
